@@ -52,9 +52,11 @@ add_action('save_post', 'clear_db_cache_archives_list'); // 新发表文章/修�
 
 // POST NUMBER
 function count_words ($text) {   
-    global $post;   
+    global $post;  
+	global $output; 
     if ( '' == $text ) {   
-        $text = $post->post_content;   
+        //$text = $post->post_content;  
+		$text = get_the_content(); 
         if (mb_strlen($output, 'UTF-8') < mb_strlen($text, 'UTF-8')) $output .= '' . mb_strlen(preg_replace('/\s/','',html_entity_decode(strip_tags($post->post_content))),'UTF-8') . '';   
         return $output;   
     }   
@@ -200,4 +202,12 @@ function del_mediaelement() {
         wp_deregister_script( 'mediaelement' );
 }
 
+
+//导航菜单
+register_nav_menus( array(
+    'primary'   => __( 'Primary Menu', 'myfirsttheme' ),
+    'secondary' => __( 'Secondary Menu', 'myfirsttheme' )
+) );
+
+include_once('themeconfignavbar.php');
 ?>

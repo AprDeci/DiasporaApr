@@ -2,6 +2,7 @@
 
 <div class="post">
     <?php
+        global $text;
 
         if (!has_post_thumbnail()) {
 
@@ -46,9 +47,10 @@
     <div class="else">
         <p><?php the_time('F j, Y'); ?></p>
         <h3><a data-id="<?php the_ID() ?>" class="posttitle" href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
-        <p><?php echo wp_trim_words( get_the_content(), 100, '...' ); ?></p>
+        <p><?php echo wp_trim_words( get_the_content(), 100, '...') ?>
+        </p>
         <p class="here">
-            <span class="icon-letter"><?php echo count_words ($text); ?></span>
+            <span class="icon-letter"><?php  echo count_words ($text); ?></span>
             <span class="icon-view"><?php echo getPostViews(get_the_ID()); ?></span>
             <?php tz_printLikes(get_the_ID()); ?>
         </p>
