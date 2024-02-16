@@ -8,6 +8,8 @@
     
     <?php setPostViews(get_the_ID()); ?>
 
+    <?php global $text ?>
+
     <?php $args = array(
         'post_type' => 'attachment',
         'numberposts' => -1, 

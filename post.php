@@ -2,7 +2,6 @@
 
 <div class="post">
     <?php
-        global $text;
 
         if (!has_post_thumbnail()) {
 
@@ -17,7 +16,8 @@
             if ($attachments) {
                 $img = wp_get_attachment_image_src( $attachments[0]->ID, false );
             } else {
-                $img[0] = get_template_directory_uri() .'/images/default.jpg';
+                //$img[0] = get_template_directory_uri() .'/images/default.jpg';
+                $img[0] = rest_url('diaspora/v1/image/feature') . '?' . rand(1, 1000);
             }
 
         } else {
@@ -35,11 +35,11 @@
 
         <?php if (USE_TIMTHUMB): ?>
 
-        <img width="680" height="440" src="<?php echo get_template_directory_uri(); ?>/timthumb/timthumb.php?src=<?php echo $img[0] ?>" class="cover" />
+        <img width="680" height="440" src="<?php echo get_template_directory_uri(); ?>/timthumb/timthumb.php?src=<?php echo $img[0]; ?>" class="cover" />
 
         <?php else: ?>
 
-        <img width="680" height="440" src="<?php echo $img[0] ?>" class="cover" />
+        <img width="680" height="382.5" src="<?php echo $img[0];?>" class="cover" />
 
         <?php endif; ?>
 
@@ -50,7 +50,7 @@
         <p><?php echo wp_trim_words( get_the_content(), 100, '...') ?>
         </p>
         <p class="here">
-            <span class="icon-letter"><?php  echo count_words ($text); ?></span>
+            <span class="icon-letter"><?php  echo count_words (''); ?></span>
             <span class="icon-view"><?php echo getPostViews(get_the_ID()); ?></span>
             <?php tz_printLikes(get_the_ID()); ?>
         </p>

@@ -90,6 +90,7 @@ audio {
 #cover {
     position: absolute;
     max-width: none;
+    object-fit: contain;
 }
 
 #header {
@@ -183,6 +184,9 @@ audio {
     overflow: hidden;
     position: relative;
     z-index: 3;
+}
+.post img{
+    object-fit: contain;
 }
 .else {
     position: absolute;
@@ -748,6 +752,11 @@ h1.title {
     width: 27%;
     vertical-align: top;
 }
+.relate li img {
+    width: 100%;
+    height: 155px;
+    object-fit: cover;
+}
 .relate li div a {
     font-size: 24px;
     color: #333;
@@ -759,6 +768,7 @@ h1.title {
     line-height: 1.8;
     margin-top: 10px;
 }
+
 
 #preview {
     position: fixed;

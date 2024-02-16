@@ -28,7 +28,7 @@ if ( $posttags ) {
             <p><?php echo mb_strimwidth(strip_tags(apply_filters('the_content', $post->post_content)), 0, 170,"..."); ?></p>
          </div><!--
       --><a href="<?php the_permalink(); ?>" data-id="<?php the_ID() ?>" title="<?php the_title(); ?>">
-            <img class="relateimg" src="<?php echo $thumbnail[0]; ?>" alt="<?php the_title(); ?>" />
+            <img class="relateimg" src="<?php echo rest_url('diaspora/v1/image/feature') . '?' . rand(1, 1000); ?>" alt="<?php the_title(); ?>" />
          </a>
     </li>
 
@@ -54,7 +54,7 @@ if ( $i < $post_num ) { // 當 tags 文章數量不足, 再取 category 補足.
             <p><?php echo wp_trim_words( get_the_content(), 170, '...' ); ?></p>
          </div><!--
       --><a data-id="<?php the_ID() ?>" href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
-            <img class="relateimg" src="<?php echo $thumbnail[0]; ?>" alt="<?php the_title(); ?>" />
+            <img class="relateimg" src="<?php echo rest_url('diaspora/v1/image/feature') . '?' . rand(1, 1000); ?>" alt="<?php the_title(); ?>" />
          </a>
     </li>
     <?php $i++;

@@ -53,10 +53,10 @@ add_action('save_post', 'clear_db_cache_archives_list'); // 新发表文章/修�
 // POST NUMBER
 function count_words ($text) {   
     global $post;  
-	global $output; 
+	$output = '';
     if ( '' == $text ) {   
-        //$text = $post->post_content;  
-		$text = get_the_content(); 
+        $text = $post->post_content;  
+		//$text = get_the_content(); 
         if (mb_strlen($output, 'UTF-8') < mb_strlen($text, 'UTF-8')) $output .= '' . mb_strlen(preg_replace('/\s/','',html_entity_decode(strip_tags($post->post_content))),'UTF-8') . '';   
         return $output;   
     }   
@@ -203,11 +203,26 @@ function del_mediaelement() {
 }
 
 
-//导航菜单
-register_nav_menus( array(
-    'primary'   => __( 'Primary Menu', 'myfirsttheme' ),
-    'secondary' => __( 'Secondary Menu', 'myfirsttheme' )
-) );
 
-include_once('themeconfignavbar.php');
+//rest自定义接口 随机特色图
+function init_rest_url(){
+	register_rest_route('diaspora/v1', '/image/feature', array(
+        'methods' => 'GET',
+        'callback' => 'feature_gallery',
+    ));
+}
+function feature_gallery() {
+    $imgurl = img_url;
+    $data = array('feature image');
+    $response = new WP_REST_Response($data);
+    $response->set_status(302);
+    $response->header('Location', $imgurl);
+    return $response;
+}
+add_action( 'rest_api_init', 'init_rest_url');
+
+if (!function_exists('optionsframework_init')){
+    define('OPTIONS_FRAMEWORK_DIRECTORY', get_template_directory_uri().'/inc/');
+    require_once dirname(__FILE__).'/inc/options-framework.php';
+}
 ?>
