@@ -14,6 +14,18 @@ if (is_home()) {
         $keywords = $keywords . $tag->name . ", ";
     }
 }
+if (apr_get_option('logo')) {
+    $logo = apr_get_option('logo')['url'];
+}
+else {
+    $logo = get_template_directory_uri() . '/images/logo.png';
+}
+if (apr_get_option('icon')) {
+    $icon = apr_get_option('icon')['url'];
+}
+else {
+    $icon = get_template_directory_uri() ."/images/144.png";
+}
 ?>
 <!DOCTYPE html>
 <html <?php language_attributes(); ?> class="loading">
@@ -28,18 +40,16 @@ if (is_home()) {
 <meta name="keywords" content="<?php echo $keywords ?>" />
 <meta name="description" content="<?php echo $description ?>" />
 <meta name="author" content="LoeiFy">
-<link rel="apple-touch-icon-precomposed" sizes="144x144" href="<?php echo get_template_directory_uri(); ?>/images/144.png">
+<!-- <link rel="apple-touch-icon-precomposed" sizes="144x144" href="<?php echo get_template_directory_uri(); ?>/images/144.png">
 <link rel="apple-touch-icon-precomposed" sizes="114x114" href="<?php echo get_template_directory_uri(); ?>/images/114.png">
 <link rel="apple-touch-icon-precomposed" sizes="72x72" href="<?php echo get_template_directory_uri(); ?>/images/72.png">
-<link rel="apple-touch-icon-precomposed" href="<?php echo get_template_directory_uri(); ?>/images/57.png">
-<link rel="icon" type="image/png" href="<?php echo get_template_directory_uri(); ?>/images/32.png" />
+<link rel="apple-touch-icon-precomposed" href="<?php echo $icon; ?>"> -->
+<link rel="icon" type="image/png" href="<?php echo $icon; ?>"/>
 <style>
-.image-logo{background-image:url(<?php echo get_template_directory_uri(); ?>/images/logo.png)}body.mu .image-logo{background-image:url(<?php echo get_template_directory_uri(); ?>/images/logo_black.png)}.image-icon{background-image:url(<?php echo get_template_directory_uri(); ?>/images/logo_min.png)}
+.image-logo{background-image:url(<?php echo $logo; ?>)}body.mu .image-logo{background-image:url(<?php echo get_template_directory_uri(); ?>/images/logo_black.png)}.image-icon{background-image:url(<?php echo get_template_directory_uri(); ?>/images/logo_min.png)}
 </style>
 <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/assets/Diaspora.css" />
-<link rel="stylesheet" href="https://unpkg.com/@highlightjs/cdn-assets@11.6.0/styles/default.min.css">
-<script src="https://unpkg.com/@highlightjs/cdn-assets@11.6.0/highlight.min.js"></script>
-<script src="https://unpkg.com/@highlightjs/cdn-assets@11.6.0/languages/go.min.js"></script>
+<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/static/default.min.css">
 <?php wp_head(); ?>
 </head>
 <body class="loading">

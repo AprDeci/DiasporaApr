@@ -52,7 +52,12 @@
         </div>
 
         <div id="header"><div>
-            <a class="<?php if (LOGO_FONT) { echo 'icon-logo'; } else { echo 'image-logo'; } ?>" href="/"></a>
+            <?php if(apr_get_option('logo_mode')=='text'):
+                    echo '<a class="text-logo" href="/">' .apr_get_option('logo_text') .'</a>';
+                else:
+                    echo '<a class="image-logo" href="/"></a>';
+                endif;
+            ?>
             <div class="icon-menu switchmenu"></div>
         </div></div>
         <div id="post0">

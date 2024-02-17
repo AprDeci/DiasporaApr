@@ -212,7 +212,7 @@ function init_rest_url(){
     ));
 }
 function feature_gallery() {
-    $imgurl = img_url;
+    $imgurl = apr_get_option('featuer_img_api');
     $data = array('feature image');
     $response = new WP_REST_Response($data);
     $response->set_status(302);
@@ -221,8 +221,6 @@ function feature_gallery() {
 }
 add_action( 'rest_api_init', 'init_rest_url');
 
-if (!function_exists('optionsframework_init')){
-    define('OPTIONS_FRAMEWORK_DIRECTORY', get_template_directory_uri().'/inc/');
-    require_once dirname(__FILE__).'/inc/options-framework.php';
-}
+require_once get_theme_file_path() .'/inc/codestar-framework.php';
+require_once 'option.php';
 ?>

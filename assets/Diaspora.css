@@ -1,3 +1,7 @@
+@font-face {
+    font-family: 'logoFont';
+    src: url('./fonts/logo.ttf');
+}
 body, div, h1, h2, h3, h4, h5, p, ul, li {
     margin: 0;
     padding: 0;
@@ -132,6 +136,17 @@ audio {
     background-position: center center;
     width: 62px;
     height: 26px;
+}
+.text-logo {
+    z-index: 4;
+    position: relative;
+    display: inline-block;
+    width: auto;
+    height: 26px;
+    font-size: 18px;
+    color: #ffffffba;
+    letter-spacing: 5px;
+    font-family: 'logofont';
 }
 #vibrant {
     position: absolute;
