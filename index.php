@@ -60,7 +60,18 @@
                     echo '<a class="image-logo" href="/"></a>';
                 endif;
             ?>
-            <div class="icon-menu switchmenu"></div>
+            <div class="icon-menu switchmenu">
+                <poparea>
+                    <?php if (is_user_logged_in()):
+                            $current_user = wp_get_current_user()->user_login;
+                            echo '<a>' .$current_user .'</a><a target="_blank" href="/wp-admin/post-new.php">发布文章</a><a href="/wp-admin/" target="_blank">管理后台</a><a href="/wp-admin/profile.php" target="_blank">个人资料</a><a href="/wp-login.php?action=logout" target="_blank">退出登录</a>';
+                        else:
+                            echo '<a href="/wp-login.php">login</a>';;
+                        endif
+                    ?>
+                    
+                </poparea>
+            </div>
         </div></div>
         <div id="post0">
             <p><?php the_time('F j, Y'); ?></p>

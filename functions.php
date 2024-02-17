@@ -225,5 +225,10 @@ add_action( 'rest_api_init', 'init_rest_url');
 require_once get_theme_file_path() .'/inc/codestar-framework.php';
 require_once 'option.php';
 
+add_action('wp_logout','auto_redirect_after_logout');
+function auto_redirect_after_logout(){
+  wp_safe_redirect( home_url() );
+  exit();
+}
 
 ?>
