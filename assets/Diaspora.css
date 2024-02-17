@@ -1038,7 +1038,22 @@ ol.children li {
 .nav-links a {
     color: #EF6D57;
 }
-
+.site-info {
+    text-align: center;
+    justify-content: center;
+    margin-bottom: 50px;
+    color: #555;
+    max-width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+.site-info p{
+    margin: 15px;
+}
+.site-info p:nth-last-child(1){
+    font-size: 12px;
+    color: #a3a3a3;
+}
 @media screen and (max-width: 1200px) {
     #header > div {
         width: 900px;

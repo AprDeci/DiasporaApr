@@ -221,6 +221,9 @@ function feature_gallery() {
 }
 add_action( 'rest_api_init', 'init_rest_url');
 
+//后台框架
 require_once get_theme_file_path() .'/inc/codestar-framework.php';
 require_once 'option.php';
+
+
 ?>

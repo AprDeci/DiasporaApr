@@ -4,7 +4,9 @@
 
 <div class="nav">
 <?php wp_nav_menu( array( 'theme_location' => 'menu', 'container' => '', 'fallback_cb' => '' ) ); ?>
-<p>&copy; <?php echo date("Y"); ?> <?php bloginfo('name'); ?>. Powered by WordPress</p>
+<p>&copy; <?php echo date("Y"); ?> <?php bloginfo('name'); ?>. Theme Diaspora by Aprdec</p>
+
+
 </div>
 
 <div id="container">

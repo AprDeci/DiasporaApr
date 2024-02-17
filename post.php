@@ -38,8 +38,8 @@
         <img width="680" height="440" src="<?php echo get_template_directory_uri(); ?>/timthumb/timthumb.php?src=<?php echo $img[0]; ?>" class="cover" />
 
         <?php else: ?>
-
-        <img width="680" height="382.5" src="<?php echo $img[0];?>" class="cover" />
+        <noscript><img width="680" height="382.5" src="<?php echo $img[0];?>" class="cover" /></noscript>
+        <img class="lazy" width="680" height="382.5" data-original="<?php echo $img[0];?>" class="cover" alt=<?php echo the_title(); ?>/>
 
         <?php endif; ?>
 

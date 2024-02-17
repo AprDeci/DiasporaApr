@@ -59,10 +59,47 @@ if ( class_exists( 'CSF' ) ) {
         'library' => 'image',
         'desc'    => '建议尺寸: 48px*48px',
       ),
+
+      array(
+        'id'      => 'site_info_text',
+        'type'    => 'textarea',
+        'title'   => '底部信息',
+        'default' => ''
+      ),
+
     )
   ) );
+  CSF::createSection( $prefix, array(
+    'title'  => '社交信息',
+    'fields' => array(
+      
+      array(
+        'id'      => 'Github',
+        'type'    => 'text',
+        'title'   => 'Github',
+      ),
+      array(
+        'id'      => 'bilibili',
+        'type'    => 'text',
+        'title'   => '哔哩哔哩',
+      ),
+      array(
+        'id'      => 'wechat',
+        'type'    => 'text',
+        'title'   => '微信',
+      ),
+      array(
+        'id'      => 'wangyiyun',
+        'type'    => 'text',
+        'title'   => '网易云',
+      ),
+      array(
+        'id'      => 'QQ',
+        'type'    => 'text',
+        'title'   => 'QQ',
+      ),
 
-  
-
+  ))
+      );
 }
 ?>
