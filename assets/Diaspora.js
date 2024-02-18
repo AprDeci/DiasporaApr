@@ -301,10 +301,14 @@ $(function() {
             if (swatches['DarkVibrant']) {
                 $('#vibrant polygon').css('fill', swatches['DarkVibrant'].getHex())
                 $('#vibrant div').css('background-color', swatches['DarkVibrant'].getHex())
+                
+
             }
             if (swatches['Vibrant']) {
                 $('.icon-menu').css('color', swatches['Vibrant'].getHex())
-            }
+                appendStr = "<style>.icon-menu poparea a::before{background-color:" + swatches['Vibrant'].getHex() + "}</style>";
+                $(".icon-menu poparea a").append(appendStr);
+            }           
 
         })
 

@@ -2,6 +2,10 @@
     font-family: 'logoFont';
     src: url('./fonts/logo.ttf');
 }
+@font-face {
+    font-family: 'codeFont';
+    src: url('./fonts/consola.ttf');
+}
 body, div, h1, h2, h3, h4, h5, p, ul, li {
     margin: 0;
     padding: 0;
@@ -94,7 +98,7 @@ audio {
 #cover {
     position: absolute;
     max-width: none;
-    object-fit: contain;
+    object-fit: cover;
 }
 
 #header {
@@ -126,25 +130,45 @@ audio {
     align-content: center;
     position: absolute;
     top: 150%;
-    right: -27px;
+    right: -22px;
     box-shadow: 1px 1px 5px #000;
     font-size: 13px;
     font-family: tahoma,sans-serif;
     background-color: #f8f8f8;
     color: #fff;
     opacity: 0;
-    transition: all .5s ease-in-out
+    transition: all .5s ease-in-out;
+    z-index:0;
 }
 .icon-menu poparea a{
+    position: relative;
     display: block;
-    width:60px;
+    width:80px;
+    height: 43px;
+    line-height:43px;
     text-align: center;  
     justify-content: center ;
-     margin:10px 10px 20px 10px;
-     color: rgb(0, 0, 0);
+    color: rgb(0, 0, 0);
+    -webkit-user-select:none;
+    -moz-user-select:none;
+    -ms-user-select:none;
+    user-select:none;
  }
- icon-menu poparea a:hover{
-    
+ .icon-menu poparea a::before{
+    content: " ";
+    display: block;
+    position: absolute;
+    top: 0; right: 0; bottom: 0; left: 0;
+    inset: 0 0 0 0;
+    background: hsl(200 100% 80%);
+    z-index: -1;
+    transition: transform .3s ease;
+    transform: scaleX(0);
+    transform-origin: bottom right;
+ }
+poparea a:hover::before{
+    transform: scaleX(1) !important;
+    transform-origin: bottom left !important;
  }
 .icon-menu poparea:before{
     content: '';
@@ -905,6 +929,9 @@ h1.title {
 }
 .content ol li {
     list-style: decimal;
+}
+.content code{
+    font-family:codeFont !important;
 }
 .alignleft {
     float: left;

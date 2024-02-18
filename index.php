@@ -29,7 +29,11 @@
 
         if ($attachments) {
             $cover = wp_get_attachment_image_src( $attachments[0]->ID, false );
-        } else {
+        } else if(apr_get_option('main_img')['url']){
+            $cover[0] = apr_get_option('main_img')['url'];
+/*             $cover[1] = 1400;
+            $cover[2] = 905; */
+        }else{
             $cover[0] = get_template_directory_uri() .'/images/default.jpg';
             $cover[1] = 1400;
             $cover[2] = 905;

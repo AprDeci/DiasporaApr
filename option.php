@@ -28,6 +28,14 @@ if ( class_exists( 'CSF' ) ) {
       ),
 
       array(
+        'id'      => 'main_img',
+        'type'    => 'media',
+        'title'   => '首页图',
+        'library' => 'image',
+        'placeholder' => get_template_directory_uri() .'/images/default.jpg',
+      ),
+
+      array(
         'id'      => 'logo_mode',
         'type'    => 'select',
         'title'   => 'logo模式',
@@ -87,6 +95,7 @@ if ( class_exists( 'CSF' ) ) {
         'id'      => 'wechat',
         'type'    => 'text',
         'title'   => '微信',
+        'default' => 'Hello world.'
       ),
       array(
         'id'      => 'wangyiyun',
@@ -97,6 +106,12 @@ if ( class_exists( 'CSF' ) ) {
         'id'      => 'QQ',
         'type'    => 'text',
         'title'   => 'QQ',
+      ),
+      array(
+        'id'      => 'opt-text',
+        'type'    => 'text',
+        'title'   => 'Text',
+        'default' => 'Hello world.'
       ),
 
   ))
