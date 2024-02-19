@@ -6,6 +6,20 @@
     font-family: 'codeFont';
     src: url('./fonts/consola.ttf');
 }
+@font-face {
+    font-family: 'iconfont';  
+    src: url('//at.alicdn.com/t/c/font_2986917_g9rpdas6xg6.woff2?t=1708304631295') format('woff2'),
+         url('//at.alicdn.com/t/c/font_2986917_g9rpdas6xg6.woff?t=1708304631295') format('woff'),
+         url('//at.alicdn.com/t/c/font_2986917_g9rpdas6xg6.ttf?t=1708304631295') format('truetype');
+  }
+.iconfont{
+    font-family:"iconfont" !important;
+    font-size:16px;font-style:normal;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-stroke-width: 0.2px;
+    -moz-osx-font-smoothing: grayscale;
+    
+}
 body, div, h1, h2, h3, h4, h5, p, ul, li {
     margin: 0;
     padding: 0;
@@ -55,7 +69,7 @@ body.loading:before {
   50% { -moz-transform:scale(1.0); }
   100% { -moz-transform:scale(0.3); }
 }
-body.loading #container, body.loading #single, body.loading .nav {
+body.loading #container, body.loading #single, body.loading .nav, body.loading  {
     opacity: 0;
 }
 html.loading, body.loading {
@@ -74,6 +88,7 @@ img {
     display: block;
     max-width: 100%;
     height: auto;
+    
 }
 audio {
     display: none;
@@ -131,7 +146,7 @@ audio {
     position: absolute;
     top: 150%;
     right: -22px;
-    box-shadow: 1px 1px 5px #000;
+    box-shadow: 0px 1px 3px 0px #000;
     font-size: 13px;
     font-family: tahoma,sans-serif;
     background-color: #f8f8f8;
@@ -506,6 +521,68 @@ body.touch .scrollbar {
     -moz-transition: top 0.3s cubic-bezier(0.25, 0.5, 0.5, 0.9);
     transition: top 0.3s cubic-bezier(0.25, 0.5, 0.5, 0.9);
 }
+.nav div{
+    position: absolute;
+    width: 100%;
+    bottom: 70px;
+    justify-content: center;
+    align-items: center;
+    display:flex;
+}
+.nav div a{
+    margin-left: 10px;
+}
+.nav a img{
+    width: 30px;
+    display: inline-block;
+}
+.searchform {
+    width: 550px;
+    height: 50px;
+    position: absolute;
+    z-index: 2;
+    right: 65px;
+    top: -18px;
+    overflow: hidden;
+}
+.searchform input[type="text"] {
+    position:absolute;
+    right: -400px;
+    font-size:24px;
+    border: none;
+    outline: none;
+    color: #ffffffba;
+    padding: 3px;
+    padding-right: 60px;
+    height:40px;
+    width: 400px;
+    background: none;
+    z-index: 3;
+    transition: right 2.4s cubic-bezier(0.000, 0.795, 0.000, 1.000);
+    cursor: pointer;
+    opacity: 0;
+  }
+.searchform input[type="image"] {
+    width:25px;
+    position:absolute;
+    right:0px;
+    bottom: 10px;
+    transform:rotate(0deg);
+    transition:transform .4s linear;
+    z-index:2;
+  }
+.searchform input[type="image"]:hover {
+    transform: rotate(360deg);
+    transition:transform .4s linear;
+  }
+.searchform input[type="text"]:focus{
+    width:400px;
+    z-index:1;
+    border-bottom: 1px solid #BBB;
+    right: 40px;
+    opacity: 1;
+  }
+
 body.mu {
     overflow: hidden;
     height: 100%;
@@ -1118,6 +1195,40 @@ ol.children li {
     font-size: 12px;
     color: #a3a3a3;
 }
+
+/* search */
+#search-title{
+    height: 160px;
+    text-align: center;
+    position: relative;
+}
+#search-title p{
+    font-size: 25px;
+    font-family:'logoFont' ;
+    position: relative;
+    top: 115px;
+}
+.search hr {
+	border-top: 3px double #8c8b8b;
+}
+#search-container{
+    padding-bottom: 100px;
+    overflow: hidden;
+    position: relative;
+}
+#search-container::before{
+    content: '';
+    display: block;
+    width: 1px;
+    height: 200%;
+    position: absolute;
+    left: 50%;
+    background: #c7c7c7;
+    top: -50%;
+    z-index: 0;
+}
+
+
 @media screen and (max-width: 1200px) {
     #header > div {
         width: 900px;

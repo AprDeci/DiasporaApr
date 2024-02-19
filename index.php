@@ -4,11 +4,18 @@
 
 <div class="nav">
 <?php wp_nav_menu( array( 'theme_location' => 'menu', 'container' => '', 'fallback_cb' => '' ) ); ?>
+<div>
+<?php
+echo !empty(apr_get_option('Github'))?'<a class="sociallink" href='.apr_get_option('Github').'><img src='.get_template_directory_uri().'/images/github.png" alt=""></a>':'';
+echo !empty(apr_get_option('bilibili'))?'<a class="sociallink" href='.apr_get_option('bilibili').'><img src='.get_template_directory_uri().'/images/bilibili.png" alt=""></a>':'';
+echo !empty(apr_get_option('QQ'))?'<a class="sociallink" href='.apr_get_option('QQ').'><img src='.get_template_directory_uri().'/images/QQ.png" alt=""></a>':'';
+echo !empty(apr_get_option('wangyiyun'))?'<a class="sociallink" href='.apr_get_option('wangyiyun').'><img src='.get_template_directory_uri().'/images/cloudmusic2.png" alt=""></a>':'';
+?>
+</div>
 <p>&copy; <?php echo date("Y"); ?> <?php bloginfo('name'); ?>. Theme Diaspora by Aprdec</p>
 
 
 </div>
-
 <div id="container">
 
     <?php if (have_posts()) : $count = 0;  while (have_posts()) : the_post(); $count++; if( $count <= 1 ): ?>
@@ -31,8 +38,6 @@
             $cover = wp_get_attachment_image_src( $attachments[0]->ID, false );
         } else if(apr_get_option('main_img')['url']){
             $cover[0] = apr_get_option('main_img')['url'];
-/*             $cover[1] = 1400;
-            $cover[2] = 905; */
         }else{
             $cover[0] = get_template_directory_uri() .'/images/default.jpg';
             $cover[1] = 1400;
@@ -64,6 +69,9 @@
                     echo '<a class="image-logo" href="/"></a>';
                 endif;
             ?>
+            <div class="searchform">
+                <?php get_search_form(); ?>
+            </div>
             <div class="icon-menu switchmenu">
                 <poparea>
                     <?php if (is_user_logged_in()):
