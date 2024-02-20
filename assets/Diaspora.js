@@ -607,6 +607,6 @@ $(function() {
 
     })
 
-    console.log("%c Github %c","background:#24272A; color:#ffffff","","https://github.com/LoeiFy/Diaspora")
+    console.log("%c Github %c","background:#24272A; color:#ffffff","","https://github.com/AprDeci/DiasporaApr")
 
 })

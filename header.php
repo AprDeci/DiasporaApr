@@ -3,6 +3,7 @@ if (is_home()) {
     $description = get_bloginfo('description');
     $keywords = "素锦, inspiration, customization, rainmeter, design, web, 壁纸, 设计, 收集, wallpaper, collection, jaku, icon";
 } else {
+    if(empty($post)){ }else{
     if ($post->post_excerpt) {
         $description = $post->post_excerpt;
     } else {
@@ -13,6 +14,7 @@ if (is_home()) {
     foreach ($tags as $tag ) {
         $keywords = $keywords . $tag->name . ", ";
     }
+}
 }
 if (apr_get_option('logo')) {
     $logo = apr_get_option('logo')['url'];

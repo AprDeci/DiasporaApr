@@ -62,6 +62,7 @@
             <span>字数 <?php echo count_words ($text); ?></span>
             <span>评论 <?php comments_number( '0', '1', '%' ); ?></span>
             <span>喜欢 <?php tz_printLikes(get_the_ID()); ?></span>
+            <span><?php edit_post_link() ?></span>
         </div>
 
         <div class="content">

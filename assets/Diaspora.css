@@ -558,7 +558,7 @@ body.touch .scrollbar {
     width: 400px;
     background: none;
     z-index: 3;
-    transition: right 2.4s cubic-bezier(0.000, 0.795, 0.000, 1.000);
+    transition: right .8s cubic-bezier(0.000, 0.795, 0.000, 1.000);
     cursor: pointer;
     opacity: 0;
   }
@@ -570,6 +570,7 @@ body.touch .scrollbar {
     transform:rotate(0deg);
     transition:transform .4s linear;
     z-index:2;
+    background-image: ;
   }
 .searchform input[type="image"]:hover {
     transform: rotate(360deg);
@@ -1207,6 +1208,9 @@ ol.children li {
     font-family:'logoFont' ;
     position: relative;
     top: 115px;
+}
+#search-title p span{
+    color: #ef7474b0;
 }
 .search hr {
 	border-top: 3px double #8c8b8b;
