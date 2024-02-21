@@ -230,5 +230,6 @@ function auto_redirect_after_logout(){
   wp_safe_redirect( home_url() );
   exit();
 }
-
+/* Disable WordPress Admin Bar for all users */ 
+add_filter( 'show_admin_bar', '__return_false' );
 ?>

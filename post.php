@@ -15,9 +15,10 @@
 
             if ($attachments) {
                 $img = wp_get_attachment_image_src( $attachments[0]->ID, false );
-            } else {
-                //$img[0] = get_template_directory_uri() .'/images/default.jpg';
+            } elseif (apr_get_option('featuer_img_api')) {
                 $img[0] = rest_url('diaspora/v1/image/feature') . '?' . rand(1, 1000);
+            } else{
+                $img[0] = get_template_directory_uri() .'/images/default.jpg';
             }
 
         } else {

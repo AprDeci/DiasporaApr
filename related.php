@@ -1,3 +1,8 @@
+<?      if (apr_get_option('featuer_img_api')) {
+                $img = rest_url('diaspora/v1/image/feature') . '?' . rand(1, 1000);
+            } else{
+                $img = get_template_directory_uri() .'/images/default.jpg';
+            }?>
 <ul>
 <h3><em>相 关 文 章</em><span>
     <a href="javascript: window.scrollTo(0, 0);">返回顶部</a>
@@ -15,7 +20,7 @@ if ( $posttags ) {
         'post_status' => 'publish',
         'tag__in' => explode(',', $tags), // 只選 tags 的文章. //zww: edit
         'post__not_in' => explode(',', $exclude_id), // 排除已出現過的文章.
-        'caller_get_posts' => 1,
+        'ignore_sticky_posts' => 1,
         'orderby' => 'rand', // 依評論日期排序.
         'posts_per_page' => $post_num
     );
@@ -41,7 +46,7 @@ if ( $i < $post_num ) { // 當 tags 文章數量不足, 再取 category 補足.
     $args = array(
         'category__in' => explode(',', $cats), // 只選 category 的文章.
         'post__not_in' => explode(',', $exclude_id),
-        'caller_get_posts' => 1,
+        'ignore_sticky_posts' => 1,
         'orderby' => 'rand',
         'posts_per_page' => $post_num - $i
     );
@@ -54,7 +59,7 @@ if ( $i < $post_num ) { // 當 tags 文章數量不足, 再取 category 補足.
             <p><?php echo wp_trim_words( get_the_content(), 170, '...' ); ?></p>
          </div><!--
       --><a data-id="<?php the_ID() ?>" href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
-            <img class="relateimg" src="<?php echo rest_url('diaspora/v1/image/feature') . '?' . rand(1, 1000); ?>" alt="<?php the_title(); ?>" />
+            <img class="relateimg" src="<?php echo $img ?>" alt="<?php the_title(); ?>" />
          </a>
     </li>
     <?php $i++;
